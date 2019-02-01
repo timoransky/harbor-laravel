@@ -8,7 +8,7 @@ UNAMEOUT="$(uname -s)"
 case "${UNAMEOUT}" in
     Linux*)     MACHINE=linux;;
     Darwin*)    MACHINE=mac;;
-    *)          MACHINE="UNKNOWN"
+    *)          MACHINE=windows
 esac
 
 if [[ "$MACHINE" == "UNKNOWN" ]]; then
@@ -40,6 +40,8 @@ if [[ "$MACHINE" == "linux" ]]; then
     SEDCMD="sed -i"
 elif [[ "$MACHINE" == "mac" ]]; then
     SEDCMD="sed -i .bak"
+elif [[ "$MACHINE" == "windows" ]]; then
+    SEDCMD="sed -i"
 fi
 
 # making harbor command available
